@@ -1,0 +1,67 @@
+ion-icon {
+	pointer-events: none;
+  }
+  
+.navMenuLeft {
+	z-index: 41;
+	position: absolute;
+	top: 2rem;
+	left: 2rem;
+
+	&--selected {
+		text-decoration: underline;
+	}
+	& ul li {
+		line-height: 2.5rem;
+		text-align: left;
+		& a {
+		color: #F4B942;
+		position: relative;
+		display: block;
+		font-size: 1.5rem;
+		transition: 0.5s;
+		transition-delay: 0.5s;
+			&:hover {
+				color: rgba(114,132,133,0.25);
+				transform: translateY(-10px);
+				transition-delay: 0s;
+				&::before {
+				letter-spacing: 0.2rem;
+				opacity: 1;
+				transition-delay: 0.25s;
+				}
+			}
+			&::before {
+				content: attr(data-text);
+				position: absolute;
+				bottom: -1.5rem;
+				pointer-events: none;
+				z-index: 1;
+				font-size: 1rem;
+				color: #6DD3CE;
+				letter-spacing: 2rem;
+				opacity: 0;
+				transition: 0.5s;
+				text-shadow: 0 0 10px #6DD3CE,
+				0 0 30px #6DD3CE,
+				0 0 80px #6DD3CE;
+			}
+		}
+	}
+	animation: menuToTop 2.5s 1s;
+	animation-fill-mode: backwards;
+} 
+
+@keyframes menuToTop {
+	0% {
+		z-index: 31;
+		top: 50%;
+	}
+	99% {
+		z-index: 41;
+	}
+	100% {
+		top: 2rem;
+		z-index: 41;
+	}
+}
